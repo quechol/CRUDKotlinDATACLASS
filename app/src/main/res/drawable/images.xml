@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <resources>
+        <integer-array android:name="drawer_icons">
+            <item>@drawable/aguilareal</item>
+            <item>@drawable/canguro</item>
+            <item>@drawable/caracal</item>
+            <item>@drawable/condor</item>
+            <item>@drawable/hiena</item>
+            <item>@drawable/hipopotamo</item>
+            <item>@drawable/jaguar</item>
+            <item>@drawable/jirafa</item>
+            <item>@drawable/lemur</item>
+            <item>@drawable/leon</item>
+            <item>@drawable/oso</item>
+            <item>@drawable/panda</item>
+            <item>@drawable/pinguino</item>
+            <item>@drawable/tigre</item>
+        </integer-array>
+    </resources>
+</selector>

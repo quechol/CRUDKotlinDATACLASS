@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6EBEB"
+    android:backgroundTint="#E3E4F8"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- ENCABEZADO -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout0"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#003B5C">
+
+                <TextView
+                    android:layout_width="204dp"
+                    android:layout_height="75dp"
+                    android:text="BUAP"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="50dp"
+                    android:textStyle="bold"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.077"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.52" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/fcclogo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- FIN ENCABEZADO -->
+
+            <!-- CUERPO -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="629dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="102dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:text="C R U D"
+                        android:textSize="40dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioGroup
+                        android:id="@+id/radioCRUD"
+                        android:layout_width="match_parent"
+                        android:layout_height="209dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.257">
+
+                        <RadioButton
+                            android:id="@+id/rbtnCreate"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:text="C R E A T E"
+                            android:textColor="#000000"
+                            android:textSize="25dp" />
+
+                        <RadioButton
+                            android:id="@+id/rbtnRead"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:text="R E A D"
+                            android:textColor="#000000"
+                            android:textSize="25dp" />
+
+                        <RadioButton
+                            android:id="@+id/rbtnUpdate"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:text="U P D A T E"
+                            android:textColor="#000000"
+                            android:textSize="25dp" />
+
+                        <RadioButton
+                            android:id="@+id/rbtnDelete"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:text="D E L E T E"
+                            android:textColor="#000000"
+                            android:textSize="25dp" />
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/buttonSel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:backgroundTint="#003B5C"
+                        android:text="S E L E C C I O N A R"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.533"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/radioCRUD" />
+
+                    <!--<TextView
+                        android:id="@+id/textViewInfo"
+                        android:layout_width="146dp"
+                        android:layout_height="184dp"
+                        android:layout_marginBottom="24dp"
+                        android:text="TextView"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />-->
+
+                    <TextView
+                        android:id="@+id/salida"
+                        android:layout_width="182dp"
+                        android:layout_height="193dp"
+                        android:layout_marginTop="20dp"
+                        android:text=""
+                        android:textSize="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/buttonSel" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="192dp"
+                    android:layout_height="627dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="B U S C A R: "
+                        android:textSize="25dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.235"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewEditNombre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="NOMBRE:"
+                        android:textSize="25dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.163"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                    <EditText
+                        android:id="@+id/editNombre"
+                        android:layout_width="180dp"
+                        android:layout_height="49dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.384"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewEditNombre" />
+
+                    <TextView
+                        android:id="@+id/textViewEditDescripcion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="DESCRIPCION:"
+                        android:textSize="25dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.317"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editNombre" />
+
+                    <EditText
+                        android:id="@+id/editDescripcion"
+                        android:layout_width="180dp"
+                        android:layout_height="53dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewEditDescripcion" />
+
+                    <Spinner
+                        android:id="@+id/spinnerFotos"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editDescripcion" />
+
+                    <ImageView
+                        android:id="@+id/imgFoto"
+                        android:layout_width="179dp"
+                        android:layout_height="224dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.461"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/spinnerFotos"
+                        app:srcCompat="@drawable/mapa" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- FIN CUERPO -->
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
