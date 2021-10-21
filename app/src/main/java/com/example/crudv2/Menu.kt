@@ -23,22 +23,31 @@ class Menu  : AppCompatActivity(){
         val txtNombre: TextView = findViewById(R.id.nombreSalida)
         val spinner = findViewById<Spinner>(R.id.spinnerFotos)
         val img: ImageView =findViewById(R.id.imgFoto)
+
         //listas
         var zoo: MutableList<Animal> = mutableListOf()
         val listaAnimales = listOf("aguilareal","cangurio","caracal","condor","hiena","hipopotamo","jaguar","jirafa","lemur","leon","oso","panda","pinguino","tigre")
         var fotos= arrayOf(R.drawable.aguilareal,R.drawable.canguro,R.drawable.caracal,R.drawable.condor,R.drawable.hiena,R.drawable.hipopotamo,R.drawable.jaguar,R.drawable.jirafa,R.drawable.lemur,R.drawable.leon,R.drawable.oso,R.drawable.panda,R.drawable.pinguino,R.drawable.tigre)
+
         //animales
-        val aguila = Animal("Aguila \n", "Habitad: \n Dieta: \n Promedio de vida: \n",R.drawable.aguilareal)
+        var oso = Animal("Oso \n", "Habitad: \n Dieta: \n Promedio de vida: \n",R.drawable.oso)
+        var aguila = Animal("Aguila \n", "Habitad: \n Dieta: \n Promedio de vida: \n",R.drawable.aguilareal)
+
         //spinner
         val adaptador = ArrayAdapter(this, android.R.layout.simple_spinner_item, listaAnimales)
         spinner.adapter = adaptador
+
         //agregar a la lista
         zoo.add(aguila)
+        zoo.add(oso)
+
         //variables
         var animales:Int = 1
         var imagen: Int = 0
+        var pos: Int = 0
         var encontrado: Boolean = false
         var consulta: Boolean = false
+        var nombreAux: String = ""
         //programacion
         spinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener{
@@ -104,6 +113,7 @@ class Menu  : AppCompatActivity(){
                             txtPrueba.text = supperT
                         }*/
                         if (nombreR != "") {
+                            //var pos: Int = 1
                             zoo.forEach {
                                 if (it.nombre.contains(nombreR)) {
                                     encontrado = true
@@ -113,6 +123,10 @@ class Menu  : AppCompatActivity(){
                                     txtNom.text.clear()
                                     txtDes.text.clear()
                                     consulta = true
+                                    nombreAux = it.nombre
+                                    //var pos = it.
+                                }else{
+                                    pos++
                                 }
                             }
                         } else if (descripcionR != "") {
@@ -124,6 +138,9 @@ class Menu  : AppCompatActivity(){
                                     txtNom.text.clear()
                                     txtDes.text.clear()
                                     consulta = true
+                                    nombreAux = it.nombre
+                                }else{
+                                    pos++
                                 }
                             }
                         }else{
@@ -144,27 +161,15 @@ class Menu  : AppCompatActivity(){
                         if (consulta){
                             txtPrueba.text = ""
                             txtNombre.text = ""
-                            var nombreAux: String =txtNombre.toString()
-                            var found: Boolean = false
-                            var intentos: Int = 0
-                            var i: Int = 0
-                            //var
-                            //var descripcionAux: String =txtDes.text.toString()
                             if(nombreAux != ""){
-                                //txtPrueba.text = "Animal recuperado"
-                                val nombNew: String = txtNom.toString()
-                                val descNew: String = txtDes.toString()
-                                while (found == false && intentos < 1){
-                                    zoo.forEach {
-                                        if(it.nombre==nombreAux){
-                                            var animalAux: Animal = Animal(nombNew, descNew, fotos[imagen] )
-                                            //
-                                            zoo[i] = animalAux
-                                            found = true
-                                            intentos++
-                                        }
-                                        i++
-                                    }
+                                val nombreR: String =txtNom.text.toString()
+                                val descripcionR: String =txtDes.text.toString()
+                                if (nombreR!= "" && descripcionR !=""){
+                                    var animalAux:Animal = Animal(nombreR, descripcionR, fotos[imagen])
+                                    zoo[pos] = animalAux
+                                    txtPrueba.text = "ANIMAL MODIFICADO"
+                                }else{
+                                    txtPrueba.text = "DEBES DE LLENAR TODOS LOS CAMPOS"
                                 }
                             }else{
                                 txtPrueba.text = "ERROR"
@@ -172,7 +177,11 @@ class Menu  : AppCompatActivity(){
                         }else{
                             txtPrueba.text = "DEBES HACER LA LECTURA PRIMERO"
                         }
+                        txtNom.text.clear()
+                        txtDes.text.clear()
+                        encontrado = false
                         consulta = false
+                        pos = 0
                     }
                     rbD.id -> {
                         //delete
@@ -180,6 +189,7 @@ class Menu  : AppCompatActivity(){
                         txtNombre.text = ""
                         txtNom.text.clear()
                         txtDes.text.clear()
+                        //
                         val nombreR: String =txtNom.text.toString()
                         //var descripcionR: String =txtDes.text.toString()
                         val iterator = zoo.iterator()
@@ -196,6 +206,7 @@ class Menu  : AppCompatActivity(){
                         if(!encontrado){
                             txtPrueba.text = "ANIMAL NO ENCONTRADO"
                         }
+                        //
                         txtNom.text.clear()
                         txtDes.text.clear()
                         encontrado = false
