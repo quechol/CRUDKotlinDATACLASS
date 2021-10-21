@@ -48,6 +48,7 @@ class Menu  : AppCompatActivity(){
         var encontrado: Boolean = false
         var consulta: Boolean = false
         var nombreAux: String = ""
+
         //programacion
         spinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener{
@@ -57,7 +58,6 @@ class Menu  : AppCompatActivity(){
                 p2: Int,
                 p3: Long
             ) {
-                //Toast.makeText(this@Menu,fotos[p2],Toast.LENGTH_LONG).show()
                 imagen = p2
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -71,6 +71,7 @@ class Menu  : AppCompatActivity(){
                 //no seleccion
                 txtPrueba.text = "Selecciona una opcion"
             }else{
+                //seleccion
                 when(opc){
                     rbC.id -> {
                         //create
@@ -80,7 +81,6 @@ class Menu  : AppCompatActivity(){
                             val nombreR: String =txtNom.text.toString()
                             val descripcionR: String =txtDes.text.toString()
                             if (nombreR != "" && descripcionR != ""){
-                                //crear
                                 var animal = Animal(nombreR, descripcionR, fotos[imagen])
                                 zoo.add(animal)
                                 animales++
@@ -102,7 +102,6 @@ class Menu  : AppCompatActivity(){
                         //read
                         txtPrueba.text = ""
                         txtNombre.text = ""
-                        //var encontrado: Boolean = false
                         val nombreR: String = txtNom.text.toString()
                         val descripcionR: String = txtDes.text.toString()
                         /*if (nombreR == "master"){
@@ -187,26 +186,24 @@ class Menu  : AppCompatActivity(){
                         //delete
                         txtPrueba.text = ""
                         txtNombre.text = ""
-                        txtNom.text.clear()
-                        txtDes.text.clear()
-                        //
-                        val nombreR: String =txtNom.text.toString()
-                        //var descripcionR: String =txtDes.text.toString()
-                        val iterator = zoo.iterator()
-                        while(iterator.hasNext()){
-                            val item = iterator.next()
-                            if(item.nombre.contains(nombreR)){
-                                encontrado = true
-                                txtNombre.text = nombreR
-                                txtPrueba.text = "ANIMAL ELIMINADO"
-                                iterator.remove()
-                                animales--
+                        var i: Int = 0
+                        var nombreR: String = txtNom.text.toString()
+                        if(nombreR!= ""){
+                            val iterator = zoo.iterator()
+                            while(iterator.hasNext()){
+                                val item = iterator.next()
+                                if(item.nombre.contains(nombreR)){
+                                    encontrado = true
+                                    iterator.remove()
+                                    txtPrueba.text = "ANIMAL ELIMINADO"
+                                }
                             }
+                        }else{
+                            txtPrueba.text = "NO PUEDES DEJAR LOS CAMPOS VACIOS"
                         }
                         if(!encontrado){
                             txtPrueba.text = "ANIMAL NO ENCONTRADO"
                         }
-                        //
                         txtNom.text.clear()
                         txtDes.text.clear()
                         encontrado = false

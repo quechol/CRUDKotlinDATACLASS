@@ -15,12 +15,25 @@ class MainActivity : AppCompatActivity() {
         val btnAcpt:Button = findViewById(R.id.btnLogin)
         val edUser:EditText = findViewById(R.id.editUser)
         val edPswd:EditText = findViewById(R.id.editPaswd)
+
         //variables
         var errores:Int = 0
-        //programa
+        var user: String = "root"
+        var pswd: String = "root"
+
+        //programacion
         btnAcpt.setOnClickListener{
-            val enviar = Intent(this, Menu::class.java)
-            startActivity(enviar)
+            if (edUser.text.toString() == user && edPswd.text.toString() == pswd){
+                Toast.makeText(this, "¡BIENVENIDO "+ user + "!", Toast.LENGTH_SHORT).show()
+                val enviar = Intent(this, Menu::class.java)
+                startActivity(enviar)
+            }else{
+                errores++
+                Toast.makeText(this, "¡ERROR EN USUARIO/CONTRASEÑA!", Toast.LENGTH_SHORT).show()
+            }
+            if (errores == 3){
+                this.finishAffinity()
+            }
         }
     }
 }
